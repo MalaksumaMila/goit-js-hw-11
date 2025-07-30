@@ -20,7 +20,7 @@ try {const {data} = await axios(`https://pixabay.com/api/?${params}`)
 return data.hits;
  }
 catch (error) {
-    console.log(error)
+    iziToast.warning({message: 'Помилка відповіді від сервера'})
 }
 
 }
