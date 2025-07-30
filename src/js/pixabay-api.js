@@ -9,7 +9,7 @@ import "izitoast/dist/css/iziToast.min.css";
 export async function getImagesByQuery(query) {
 
     const params = new URLSearchParams ({
-        key: "23963114-6d0d5d874ae460d9125bacd21",
+        key: "51545892-4b8f299c7368d58b68a280d40",
         q: query,
         image_type: "photo",
 orientation: "horizontal",

@@ -1,7 +1,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import {getImagesByQuery} from "./js/pixabay-api"
-import { createGallery, hideLoader, showLoader } from "./js/render-functions";
+import {clearGallery, createGallery, hideLoader, showLoader } from "./js/render-functions";
 
 const form = document.querySelector('.form');
 
@@ -12,7 +12,7 @@ const inputValue = event.target.elements["search-text"].value.trim();
 console.log(inputValue );
 
 if (!inputValue) {
-    iziToast.warning({message: 'Заповніть поле'});
+    iziToast.warning({message: 'This field cannot be empty!'});
     return;
 } 
 
@@ -26,6 +26,7 @@ getImagesByQuery(inputValue)
 `} )
 return;
     }
+    clearGallery(); 
     createGallery(data);
 }
 
@@ -37,5 +38,6 @@ return;
 .finally ( () => {
     hideLoader();
 })
+
 })
 

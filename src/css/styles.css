@@ -9,12 +9,12 @@
 @import url('./base.css');
 @import url('./container.css');
 
-.gallery {
-  display: flex;
-  gap: 24px;
-}
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./container.css');
 
-
+/* === FORM STYLES === */
 .form {
   display: flex;
   justify-content: center;
@@ -45,16 +45,16 @@
   background-color: #0056b3;
 }
 
-
+/* === GALLERY STYLES === */
 .gallery {
   list-style: none;
   padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  margin: 0 auto;
-  max-width: 1200px;
-}
+ 
 
 .gallery-item {
   background-color: #fff;
@@ -63,67 +63,81 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  
 }
-
+}
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   display: block;
 }
 
-/* Інформація під зображенням */
 .gallery-info {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
   font-size: 14px;
-  color: #333;
 }
 
 .gallery-info div {
   flex: 1 1 45%;
   margin-bottom: 5px;
-  line-height: 1.4;
+   border: 3px solid #000000;
+  border-radius: 8px;
 }
 
-
-
+/* === LOADER STYLES === */
 .loader {
   display: block;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        position: relative;
-        animation: rotate 1s linear infinite
-      }
-      .loader::before , .loader::after {
-        content: "";
-        box-sizing: border-box;
-        position: absolute;
-        inset: 0px;
-        border-radius: 50%;
-        border: 5px solid #000000;
-        animation: prixClipFix 2s linear infinite ;
-      }
-      .loader::after{
-        inset: 8px;
-        transform: rotate3d(90, 90, 0, 180deg );
-        border-color: #FF3D00;
-      }
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
 
-      @keyframes rotate {
-        0%   {transform: rotate(0deg)}
-        100%   {transform: rotate(360deg)}
-      }
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #000000;
+  animation: prixClipFix 2s linear infinite;
+}
 
-      @keyframes prixClipFix {
-          0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-          50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-          75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-      }
+.loader::after {
+  inset: 8px;
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: #FF3D00;
+}
 
-      .is-hidden {
-        display: none;
-      }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+}
+
+.is-hidden {
+  display: none;
+}
